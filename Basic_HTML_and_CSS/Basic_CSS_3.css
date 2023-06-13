@@ -1,0 +1,16 @@
+h1{
+	color:darkcyan;
+	font-weight:bold;
+	text-shadow: 4px 4px Paleturquoise;
+}
+
+ol	{
+	list-style-type: upper-roman;
+	color:#ff4500;
+	background: lightgrey;
+}
+ul {
+	list-style-type: square;
+	color:#c71585;
+	background: lightgrey;
+}
