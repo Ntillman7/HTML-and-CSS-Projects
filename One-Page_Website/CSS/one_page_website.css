@@ -6,6 +6,12 @@ body {
     font-family: "Verdana", Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
 }
+input[type=text] {
+    border: 2px solid black ;
+    border-radius: 2px;
+    width: 70%;
+    margin: 4px;
+}
 .reservation {
     width: 1050px;
     padding: 10px;
@@ -24,5 +30,3 @@ body {
     border-radius: 8px;
     background: rgb(173, 212, 215);
     box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.3);
-  
-}
