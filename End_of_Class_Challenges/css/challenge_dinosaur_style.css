@@ -44,12 +44,13 @@ td {
 }
 .centered {
     position: absolute;
-    top:50%;
+    top:60%;
     bottom: 50%;   
+    transform: translate(-50%, -50%);
 }
 .bottom-right {
     position: absolute;
-    bottom: 50px;
+    bottom: 8px;
     right: 200px;
     font-size:xx-small;
   }
@@ -82,3 +83,22 @@ td {
 .text{
     padding:4px;
 }
+.column {
+    float: left;
+    width: 50%;
+    color:#778899;
+  }
+  .row {
+    height: 25px;
+    width: 50%;
+    background-color:#DEB887;
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .text p:hover {
+    background-color: #556B2F;
+  }
