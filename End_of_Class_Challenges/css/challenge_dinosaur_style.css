@@ -51,8 +51,7 @@ td {
 .bottom-right {
     position: absolute;
     bottom: 8px;
-    right: 200px;
-    font-size:xx-small;
+    right: 30%;
   }
 .navbar {
     overflow: hidden;
