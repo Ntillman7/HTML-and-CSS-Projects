@@ -10,13 +10,12 @@ function closeModal() {
 var slideIndex = 1;
 showSlides(slideIndex);
   
-  // Next/previous controls
-function plusSlides(n) {
+ 
+function plusSlides(n) {  // Next and previous controls
     showSlides(slideIndex += n);
 }
   
-  // Thumbnail image controls
-function currentSlide(n) {
+function currentSlide(n) {  // Thumbnail image controls
     showSlides(slideIndex = n);
 }
   
@@ -33,8 +32,11 @@ function showSlides(n) {
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        
+
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
     captionText.innerHTML = dots[slideIndex-1].alt;
   }
+
+  let numb = document.images.length;
+  document.getElementById("demo").innerHTML = numb;
