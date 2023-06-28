@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title> Kitty City | Cat Resort</title>
 	<link rel="stylesheet" type="text/css" href="./CSS/one_page_website.css">
+	<script src="./js/one_page_website.js" defer></script>
 </head>
 
 <body>
@@ -35,114 +36,74 @@
 		<div id="gallery">
 			<h1>Gallery</h1>
 			<div>
-			
-			<!-- Photo-Container 1 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_1.jpg" alt="Cat Hotel">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>We have several different accomidations suites and many activies for your cat to enjoy. Book today!</p>
+				<div class="row">
+					<div class="column">
+					  <img src="./Images/Thumb/thumbnail_3.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
 					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 1 -->
-			
-			<!-- Photo-Container 2 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_2.jpg" alt="Cat at the spa">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>Check out our state of the art cat spa.</p>
+					<div class="column">
+					  <img src="./Images/Thumb/thumbnail_5.png" onclick="openModal();currentSlide(2)" class="hover-shadow">
 					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 2 -->
-			
-			<!-- Photo-Container 3 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_3.jpg" alt="Cat with dumbbell">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>Exercise classes available for all fitness levels.</p>
+					<div class="column">
+					  <img src="./Images/Thumb/thumbnail_6.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
 					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 3 -->
-			
-			<!-- Photo-Container 4 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_4.jpg" alt="Cherry Blossom themed room">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>Book a night in the Cherry Blossom suite.</p>
+					<div class="column">
+					  <img src="./Images/Thumb/thumbnail_9.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
 					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 4 -->
-			
-			<!-- Photo-Container 5 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_5.png" alt="Cat looking at lake">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>Your cat can enjoy plenty of supervised time in the great outdoors.</p>
+				  </div>
+				  
+				  <!-- The Modal/Lightbox -->
+				  <div id="myModal" class="modal">
+					<span class="close cursor" onclick="closeModal()">&times;</span>
+					<div class="modal-content">
+				  
+					  <div class="mySlides">
+						<div class="numbertext">1 / 4</div>
+						<img src="./Images/Thumb/thumbnail_3_wide.jpg" style="width:100%">
+					  </div>
+				  
+					  <div class="mySlides">
+						<div class="numbertext">2 / 4</div>
+						<img src="./Images/Thumb/thumbnail_5_wide.png" style="width:100%">
+					  </div>
+				  
+					  <div class="mySlides">
+						<div class="numbertext">3 / 4</div>
+						<img src="./Images/Thumb/thumbnail_6_wide.jpg" style="width:100%">
+					  </div>
+				  
+					  <div class="mySlides">
+						<div class="numbertext">4 / 4</div>
+						<img src="./Images/Thumb/thumbnail_9_wide.jpg" style="width:100%">
+					  </div>
+				  
+					  <!-- Next/previous controls -->
+					  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+				  
+					  <!-- Caption text -->
+					  <div class="caption-container">
+						<p id="caption"></p>
+					  </div>
+				  
+					  <!-- Thumbnail image controls -->
+					  <div class="column1">
+						<img class="demo" src="./Images/Thumb/thumbnail_3.jpg" onclick="currentSlide(1)" alt="Strong Cat">
+					  </div>
+				  
+					  <div class="column1">
+						<img class="demo" src="./Images/Thumb/thumbnail_5.png" onclick="currentSlide(2)" alt="Nature Cat">
+					  </div>
+				  
+					  <div class="column1">
+						<img class="demo" src="./Images/Thumb/thumbnail_6.jpg" onclick="currentSlide(3)" alt="Sleepy Cat">
+					  </div>
+				  
+					  <div class="column1">
+						<img class="demo" src="./Images/Thumb/thumbnail_9.jpg" onclick="currentSlide(4)" alt="Relaxing Cat">
+					  </div>
 					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 5 -->
+				  </div>
 			
-			<!-- Photo-Container 6 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_6.jpg" alt="Cat sleeping">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>We use only the highest quality pillows and blankets.</p>
-					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 6 -->
-			
-			<!-- Photo-Container 7 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_7.jpg" alt="Under the Sea themed room">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>For those with a taste for adventure, book a night in out Under the Sea suite.</p>
-					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 7 -->
-			
-			<!-- Photo-Container 8 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_8.jpg" alt="Cat running on treadmill">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>There are plenty of activities to fill their day.</p>
-					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 8 -->
-			
-			<!-- Photo-Container 9 -->
-			<div>
-				<div>
-					<img src="Images\Thumb\thumbnail_9.jpg" alt="Cat with book and tea">
-					<div>
-						<h3> Click to Enlarge </h3>
-						<p>Your cat will leave more relaxed than ever before.</p>
-					</div>
-				</div>
-			</div>
-			<!-- END PHOTO-CONTAINER 9 -->
 			
 			</div>
 		</div>
