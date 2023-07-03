@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width"/>
         <title>Nichol Tillman</title>
+        <link rel="shortcut icon" type="img/jpg" href="images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="./css/portfolio_website_style.css">
     </head>
 
@@ -12,9 +13,10 @@
         <!--Navbar-->
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">Github</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <br>
@@ -43,6 +45,54 @@
             </strong>
         </div>
 
+<!-- slideshow section -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background"> 
+                <div id="Slideshow_Container">
+                    <!-- Slide 1 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/me2_square.jpg" alt="Picture of yourself">
+                        <div class="text">I am a full-stack software developer and I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS logos"> 
+                        <div class="text">I am trained in:<br>HTML, CSS, JavaScript</div>
+                    </div>
+                    <!-- Slide 3 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/Python.png" alt="Python logo">
+                        <div class="text">Python</div>
+                    </div>
+                    <!-- Slide 4 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/SQL_and_Database.jpg" alt="SQL logo"> 
+                        <div class="text">Databases and SQL.</div>
+                    </div>
+                    <!-- Slide 5 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/section_three_choice_square.jpg" alt="Replace with a picture of your choosing"> 
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                    </div>
+                    <!-- Previous and next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br> <!-- Adds a space between the slideshow images and the dots -->
+
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(6)"></span> 
+                </div>
+            </div>
+        </div>
+<!-- /slidshow section -->
+
         <div class="row" id="about">
             <div class="column_2">
                 <img src="./images/section_one_1long.jpeg" alt="Computer at a Desk">
@@ -55,7 +105,7 @@
                     <br> 
                     <br> I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Python Developer Boot Camp. I am trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python and more.
                     <br>
-                    <br> I am a full-stack developer and would love to work with you on your project. You can <a href="#contact">contact</a> me below.              
+                    <br> I am a full-stack developer and would love to work with you on your project. You can <a href="#contact">contact</a> me using the button below.              
                 </p>
             </div>
         </div>
@@ -75,24 +125,28 @@
             </div>
         </div>
 
-        <div class="row" id="contact">
-            <div class="column_2 column_tall">
-                <img src="./images/section_three_choice.jpg" alt="Contact Image">
-            </div>
-
-            <div class="column_1 column_tall">
-                <h1>Contact</h1>
-                <form action="https://formspree.io/f/xlekqzjk" method="POST">
-                    <label>Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="email" name="email" placeholder="Enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="message" name="message" placeholder="Write your message here">
-                        <input type="submit" value="SUBMIT">
-                </form>
-            </div>
-        </div>
+       
+<!-- added contact form new -->
+            <div id="Contact">
+                <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+                <div class="form-popup" id="myForm">
+                     <form action="https://formspree.io/f/xlekqzjk" method="POST" class="form-container"> 
+                         <h1>Contact</h1>
+                         <label for="name"><b>Name</b></label>
+                           <input type="text" placeholder="Type your name here" name="name" required>
+                         <label for="phone"><b>Phone</b></label>
+                           <input type="text" placeholder="Type your phone number here" name="phone">
+                         <label for="email"><b>Email</b></label>		
+                           <input type="text" placeholder="Type your email address here" name="email" required>
+                         <label for="message"><b>Message</b></label>
+                           <input type="text" placeholder="Type your message here" name="message">
+              
+                         <button type="submit" class="btn">SUBMIT</button>
+                         <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                     </form>
+                </div>
+             </div>
+<!-- /contact form new -->
 
         <footer>
             <p>
@@ -101,7 +155,7 @@
                 <br>
             </p>
         </footer>
-
+        <script src="./js/portfolio_website.js"></script>
     </body>
 </html>
 

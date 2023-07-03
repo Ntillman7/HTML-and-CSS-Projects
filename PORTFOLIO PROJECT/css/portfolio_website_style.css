@@ -1,7 +1,20 @@
 /***General Styling***/
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin:0%;
+    opacity: 1;
+    transition: 3s opacity;
+    letter-spacing: .2vw;
+    overflow-x: hidden;
+    user-select: none;
 }
+
+body.fade-out {
+    opacity: .1;
+}
+
 h1 {
    text-transform:uppercase;
    font-family:Perpetua, Rockwell Extra Bold;
@@ -16,29 +29,32 @@ h1:hover {
 }
 .white-text {
     color: #fff;
+    padding-top: 10vh;
 }
 p {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: justify;
-    letter-spacing: 1px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
-p:hover {
-    transition:transform 1s;
-    transform:scale(1.01);
-}
+
 .center {
     text-align: center;
 }
-.center:hover {
+
+a {
+    color:#008B8B; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:hover {
     transition:transform 2s;
     transform:scale(1.1);
 }
-a {
-    color:#008B8B; 
-}
+
 q {
     font-style: italic;
 }
@@ -46,29 +62,22 @@ img {
     filter: grayscale(25%);
     border-radius:8px;
     max-width:100%;
-    height: 340px;
+    max-height: 100%;
     display:block;
-    margin-left:auto;
-    margin-right:auto;
+    margin:auto auto auto auto;
+  
 }
 img:hover {
     filter:grayscale(5%);
-    transition:transform .5s;
-    transform: scale(1.1);
 }
-@media screen and (max-width: 576px) {
-    img {
-        height: 100px;
-        margin-top: 150px;
-    }
-}
+
 footer {
     padding: 2%;
     background-color: #fff;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 footer p{
-    font-size:12px;
+    font-size: 1vw;
 }
 /***END GENERAL STYLING***/
 
@@ -91,10 +100,10 @@ footer p{
     float:left;
     display: block;
     color: #fff;
-    padding: 14px 16px;
+    padding: .75vw 1vw;
     text-decoration: none;
     font-family:Perpetua, Rockwell Extra Bold;
-    font-size:20px;
+    font-size:1.5vw;
     text-align: center;
     position: relative;
     -webkit-animation: moveNavText 5.75s;
@@ -104,16 +113,13 @@ footer p{
     from:{top:-100vw;}
     to {top: 0vw;}
 }
-@media screen and (max-width: 576px) {
-    .navbar a:hover {
-        width: 25%;
-        font-size: 12px;
-    }
-}
+
 .navbar a:hover {
         background-color:#008B8B;
         color: #000;
         font-weight:bold;
+        cursor: pointer;
+        transition: 0.5s ease-in;
 }
 .navbar a.active {
     background-color: darkgrey;
@@ -138,7 +144,8 @@ footer p{
     background: rgba (0, 0, 0, 0.5);
     color: #fff;
     width: 100%;
-    padding: 20px;
+    height: 100vh;
+    padding-top: 2vh;
     position: relative;
     -webkit-animation: moveVideoText 5.75s;
     animation: moveVideoText 5.75s;
@@ -149,35 +156,135 @@ footer p{
 }
 /***END VIDEO STYLING***/
 
+/***Slideshow styling***/
+#Slideshow_Background {
+    background:rgba(255, 255, 255, 0.35) ;
+}
+
+.mySlides {
+    display: none;  
+    filter:grayscale(50%)
+}
+
+#Slideshow_Container {
+    width: 30vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow:0px 5px 10px 12px rgba(0, 0, 0, .75) ;
+    width: 100%;
+}
+
+.Previous, .Next {
+    cursor: pointer;
+    position:absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next {
+    right: 0;
+    border-radius:3px 0 0 3px ;
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: .1vw;
+    font-size: 1.25vw;
+    background-color:rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    border-radius:0px 0px 7px 7px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: #008B8B;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade; 
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;} 
+    to {opacity: 1;} 
+}
+
+@keyframes fade {
+    from {opacity: .4;} 
+    to {opacity: 1;} 
+}
+/***End slideshow styling***/
+
 /***TABLE STYLING***/
-* {
+* { /*The asterisk is a universal selector that applies this effect to all elements on the page */
     box-sizing:border-box;
 }
 .column_1 {
     float:left;
     width:50%;
-    padding:10px;
-    padding-top:1%;
+    padding:1.6%;
     height:400px;
     background-color: #DCDCDC;
 }
-@media sreen and (max-width: 576px) {
-    .column_1 {
-        overflow:auto;
-    }
+
+.column_1 p {
+    font-size: 1.25vw;
 }
+
+
 .column_2 {
     float:left;
     width:50%;
-    padding:10px;
-    padding-top:1.9%;
+    padding:1.6%;
     height:400px;
     background-color: #4d4d4d;
 }
-.column_tall {
-    padding-top:3.5%;
-    height:450px;
-}
+
 .row:after {
     content:"";
     display:table;
@@ -185,44 +292,183 @@ footer p{
 }
 /***END TABLE STYLING***/
 
-/*** CONTACT FORM STYLING***/
-input[type=text] {
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 20vw;
+    background-color: white;
+    color:black;
+    border: solid gray;
+    cursor: pointer;
+    -webkit-animation: movePopup 5s; 
+    animation: movePopup 5s; 
+}
+
+@keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+/***styling for contact form***/
+.form-popup {
+    z-index: 8;
+    display: none;
+    position:fixed;
+    bottom: .5vw;
+    right: .5vw;
+}
+
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: rgb(245, 242, 242);
+}
+
+.form-container input[type=text] {
     width:100%;
-    padding:12px;
+    padding:.93vw;
     border:1px solid #ccc;
     border-radius:4px;
     box-sizing:border-box;
-    margin-top:6px;
-    margin-bottom:16px;
-    resize: vertical;
-    font-family:Perpetua, Rockwell Extra Bold;;
-}
-input[type=text]:hover {
-    box-shadow: 0 0 5px #00004d inset;
-}
-input[type=submit] {
-    background-color: black;
-    color: #fff;
-    font-weight:bold;
-    padding:12px 20px;
-    border: none;
-    border-radius:4px;
-    cursor: pointer;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
+    margin: .6vw 0 .6vw 0;
+    background: gainsboro;
     font-family:Perpetua, Rockwell Extra Bold;
+    font-size: 1vw;
 }
-input[type=submit]:hover {
-    background-color: #fff;
-    color: #000;
-    transform: scale(1.5);
-    transition: transform 1.5s;
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height:auto;
 }
-form {
-    border-radius:5px;
-    background-color:#DCDCDC ;
-    padding:10px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+button:hover, .form-container .btn:hover {
+    color:white;
+    background-color: #008B8B;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s; 
+    border-color: silver;
 }
-/***END OF CONTACT FORM STYLING***/
+
+.form-container .btn {
+    background-color: white; 
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: rgb(151, 78, 78);
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
+}
+/***End contact form styling***/
+
+/***Media Query Section***/
+/***Rules for changing the sizes of different elements on different screens***/
+
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; 
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
+/***End media query***/
